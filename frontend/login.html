@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Creative Gifting</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body class="admin-body">
+
+<div class="login-screen">
+  <div class="login-card">
+    <a href="index.html" class="brand">Creative <span>Gifting</span></a>
+    <h1>Admin Login</h1>
+    <p class="sub">Sign in to manage services, reviews and messages.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+      <div class="form-note" id="loginNote" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Already signed in? skip straight to the dashboard.
+    if (localStorage.getItem("admin_access_token")) {
+      window.location.href = "dashboard.html";
+      return;
+    }
+
+    const form = document.getElementById("loginForm");
+    const note = document.getElementById("loginNote");
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      note.className = "form-note";
+
+      const username = form.username.value.trim();
+      const password = form.password.value;
+
+      if (!username || !password) {
+        note.textContent = "Please enter your username and password.";
+        note.classList.add("error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Logging in…";
+
+      try {
+        const data = await Api.login(username, password);
+        localStorage.setItem("admin_access_token", data.access_token);
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        note.textContent = err.status === 401 || err.status === 400
+          ? "Incorrect username or password."
+          : err.message;
+        note.classList.add("error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Log In";
+      }
+    });
+  });
+</script>
+</body>
+</html>

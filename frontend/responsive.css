@@ -1,0 +1,79 @@
+/* ============================================================
+   Responsive rules — tablet and mobile
+   ============================================================ */
+
+@media (max-width: 980px) {
+  .hero .container,
+  .about .container,
+  .contact .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual { max-width: 380px; margin: 0 auto; order: -1; aspect-ratio: 4 / 3; }
+  .about-visual { max-width: 380px; margin: 0 auto; }
+
+  .hero-copy, .about-copy, .contact-info, .contact-form { text-align: left; }
+  .hero-copy p, .about-copy p { max-width: none; }
+
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .portfolio-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 140px; }
+  .portfolio-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .portfolio-item:nth-child(4),
+  .portfolio-item:nth-child(6) { grid-column: span 1; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  section { padding: 44px 0; }
+
+  .nav-links, .nav-cta .btn-secondary { display: none; }
+  .hamburger { display: flex; }
+
+  :root { --step-3: 1.5rem; --step-4: clamp(1.7rem, 7.5vw, 2.15rem); }
+
+  .hero { padding: 24px 0 32px; }
+  .hero-visual { max-width: 300px; aspect-ratio: 1 / 1; }
+  .hero-copy p { font-size: 0.95rem; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; margin-top: 26px; }
+  .hero-stats div strong { font-size: 1.25rem; }
+
+  .about-visual { max-width: 280px; aspect-ratio: 1 / 1; }
+
+  .service-grid { grid-template-columns: 1fr; }
+
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; gap: 10px; }
+  .portfolio-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .portfolio-item span { font-size: 0.88rem; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+  .footer-brand { grid-column: span 1; }
+
+  .contact-info, .contact-form { padding: 24px; }
+
+  .modal { padding: 22px; }
+
+  .review-card { flex: 0 0 78vw; width: 78vw; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .navbar .container { height: 60px; }
+  .brand { font-size: 1.2rem; }
+
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { justify-content: center; }
+
+  .section-heading h2 { font-size: 1.35rem; }
+  .section-heading p { font-size: 0.9rem; }
+
+  .service-card { padding: 20px 18px; }
+  .service-card h3 { font-size: 1rem; }
+
+  .review-card { flex-basis: 84vw; width: 84vw; padding: 16px; }
+
+  .hero-stats div span { font-size: 0.7rem; }
+}

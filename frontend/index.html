@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Gifting By Madniah Patel — Thoughtful Gifts, Beautifully Made</title>
+  <meta name="description" content="Customized cakes, bouquets, chocolate gifts and hampers curated for birthdays, weddings, anniversaries and every celebration in between.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --linen:#FFF9FC;
+      --mist:#FFE9F0;
+      --periwink:#FFD9E6;
+      --blush:#FFC1D4;
+      --white:#FFFFFF;
+      --line:#FFD2E0;
+      --ink:#3E2C3A;
+      --ink-soft:#8B6F7C;
+      --iris:#D44A7A;
+      --iris-deep:#B32E5A;
+      --sky:#E6799E;
+      --rose:#F25C8A;
+      --rose-deep:#C41E4E;
+      --maroon:#800020;
+      --maroon-light:#A52A4A;
+      --gold:#F7B32B;
+      --font-display:'Baloo 2', sans-serif;
+      --font-body:'Nunito', sans-serif;
+      --step-3: 1.55rem;
+      --step-4: clamp(1.7rem, 4vw, 2.35rem);
+      --max-w:1120px;
+      --radius:18px;
+      --radius-lg:24px;
+      --radius-pill:999px;
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{scroll-behavior:smooth;scroll-padding-top:64px;}
+    body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--linen);line-height:1.55;font-size:14.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;}
+    h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;margin:0;color:var(--ink);line-height:1.18;}
+    p{margin:0;}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px;}
+    .section-heading{max-width:30ch;margin-bottom:26px;}
+    .section-heading .kicker{display:block;font-weight:600;color:var(--maroon);font-size:0.78rem;margin-bottom:6px;}
+    .section-heading h2{font-size:var(--step-3);}
+    .section-heading p{margin-top:9px;color:var(--ink-soft);max-width:40ch;font-size:0.92rem;}
+    .section-heading.center{margin-left:auto;margin-right:auto;text-align:center;}
+    section{padding:44px 0;position:relative;}
+
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border-radius:var(--radius-pill);font-size:0.85rem;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;}
+    .btn-primary{background:var(--maroon);color:var(--white);box-shadow:0 8px 16px -9px rgba(128, 0, 32, 0.5);}
+    .btn-primary:hover{transform:translateY(-2px);background:var(--maroon-light);box-shadow:0 12px 20px -9px rgba(128, 0, 32, 0.7);}
+    .btn-secondary{background:transparent;color:var(--maroon);border:1.5px solid var(--maroon);}
+    .btn-secondary:hover{background:var(--maroon);color:var(--white);}
+    .btn:disabled{opacity:.6;cursor:not-allowed;transform:none!important;}
+
+    /* ===== floating decorative elements ===== */
+    .float-heart{position:absolute;font-size:1rem;opacity:.18;pointer-events:none;animation:floaty 6s ease-in-out infinite;z-index:0;}
+    .float-heart:nth-child(1){top:10%;left:5%;animation-delay:0s;font-size:1.6rem;}
+    .float-heart:nth-child(2){top:70%;left:8%;animation-delay:1.5s;font-size:1rem;color:var(--maroon);}
+    .float-heart:nth-child(3){top:30%;right:6%;animation-delay:2.5s;font-size:1.3rem;color:var(--rose);}
+    .float-heart:nth-child(4){top:85%;right:12%;animation-delay:.8s;font-size:1.1rem;}
+    .float-heart:nth-child(5){top:55%;left:50%;animation-delay:3.5s;font-size:.9rem;color:var(--maroon);}
+    @keyframes floaty{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-14px) rotate(6deg);}}
+    @keyframes sparkle{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:.7;transform:scale(1.3);}}
+
+    .sparkle-dot{position:absolute;font-size:.7rem;color:var(--gold);pointer-events:none;animation:sparkle 3s ease-in-out infinite;z-index:0;}
+
+    /* ===== NAVBAR ===== */
+    .navbar{position:sticky;top:0;z-index:100;background:rgba(255, 249, 252, 0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .brand{font-family:var(--font-display);font-weight:700;font-size:1.25rem;}
+    .brand span{color:var(--maroon);}
+    .nav-links{display:flex;gap:22px;list-style:none;margin:0;padding:0;}
+    .nav-links a{font-size:0.84rem;font-weight:500;position:relative;padding-bottom:4px;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--maroon);transition:width .25s;}
+    .nav-links a:hover::after{width:100%;}
+    .nav-cta{display:flex;align-items:center;gap:14px;}
+    .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;}
+    .hamburger span{width:20px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s;}
+    .mobile-panel{display:none;flex-direction:column;padding:4px 20px 16px;border-top:1px solid var(--line);background:var(--linen);}
+    .mobile-panel a{padding:11px 0;font-size:0.92rem;font-weight:500;border-bottom:1px solid var(--line);}
+    .mobile-panel.open{display:flex;}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;padding:30px 0 34px;overflow:hidden;}
+    .hero .container{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:30px;
+      align-items:flex-start;
+      position:relative;
+      z-index:1;
+    }
+    .hero-copy .eyebrow{font-size:0.8rem;font-weight:600;color:var(--maroon);display:flex;align-items:center;gap:6px;}
+    .hero-copy .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--rose);display:inline-block;animation:sparkle 2s infinite;}
+    .hero-copy h1{font-size:var(--step-4);margin-top:7px;}
+    .hero-copy h1 .wavy{position:relative;display:inline-block;}
+    .hero-copy h1 .wavy::after{content:'';position:absolute;left:0;bottom:2px;width:100%;height:6px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='6' viewBox='0 0 100 6'><path d='M0 3 Q 12.5 0 25 3 T 50 3 T 75 3 T 100 3' fill='none' stroke='%23F25C8A' stroke-width='2'/></svg>") repeat-x;background-size:100px 6px;opacity:.6;}
+    .hero-copy p{margin-top:12px;font-size:0.92rem;color:var(--ink-soft);max-width:38ch;}
+    .hero-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+    .hero-stats{display:flex;gap:22px;margin-top:26px;}
+    .hero-stats div strong{display:block;font-family:var(--font-display);font-size:1.3rem;color:var(--ink);}
+    .hero-stats div span{font-size:0.72rem;color:var(--ink-soft);}
+
+    /* image pinned top-right, never pushed down */
+    .hero-visual{
+      position:relative;
+      width:100%;
+      max-width:340px;
+      aspect-ratio:1/1;
+      margin:0 0 0 auto;
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      box-shadow:0 20px 34px -18px rgba(128, 0, 32, 0.25);
+      align-self:flex-start;
+      justify-self:end;
+    }
+    .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+    .hero-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(212, 74, 122, 0.2) 0%,rgba(0,0,0,0) 45%);pointer-events:none;}
+    .hero-visual .badge{position:absolute;top:12px;left:12px;background:var(--white);border-radius:var(--radius-pill);padding:6px 13px;font-size:0.7rem;font-weight:600;color:var(--maroon);box-shadow:0 6px 14px -6px rgba(62,44,58,.2);z-index:2;white-space:nowrap;}
+    .hero-visual .badge-2{position:absolute;bottom:12px;right:12px;background:var(--maroon);color:var(--white);border-radius:var(--radius-pill);padding:5px 11px;font-size:0.65rem;font-weight:600;z-index:2;display:flex;align-items:center;gap:4px;}
+
+    /* extras row spanning full width below the hero grid */
+    .hero-extras{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:24px;
+      align-items:start;
+      margin-top:12px;
+    }
+    .hero-extras .gift-finder{margin-top:0;}
+
+    /* confetti button */
+    .confetti-btn{position:relative;overflow:visible;}
+    .confetti-piece{position:absolute;width:6px;height:6px;border-radius:2px;pointer-events:none;z-index:10;}
+
+    /* ===== ABOUT ===== */
+    .about .container{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;position:relative;z-index:1;}
+    .about-visual{position:relative;border-radius:var(--radius-lg) var(--radius-lg) var(--radius-lg) 6px;overflow:hidden;box-shadow:0 14px 26px -14px rgba(62,44,58,.18);aspect-ratio:1/1;max-width:320px;}
+    .about-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+    .about-visual .sticker{position:absolute;bottom:10px;right:10px;background:var(--white);border-radius:var(--radius-pill);padding:5px 12px;font-size:0.7rem;font-weight:700;color:var(--maroon);box-shadow:0 6px 14px -6px rgba(62,44,58,.2);z-index:2;}
+    .about-copy .kicker{font-size:0.8rem;font-weight:600;color:var(--maroon);}
+    .about-copy h2{margin-top:7px;font-size:var(--step-3);}
+    .about-copy p{margin-top:12px;color:var(--ink-soft);max-width:48ch;font-size:0.92rem;}
+    .about-list{margin-top:16px;list-style:none;padding:0;display:grid;gap:9px;}
+    .about-list li{display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;}
+    .about-list li svg{flex-shrink:0;margin-top:3px;color:var(--maroon);}
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:120px;gap:10px;position:relative;z-index:1;}
+    .portfolio-item{position:relative;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:10px;color:var(--white);background:var(--mist);}
+    .portfolio-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+    .portfolio-item:hover img{transform:scale(1.05);}
+    .portfolio-item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(62,44,58,.78) 0%,rgba(62,44,58,0) 58%);z-index:1;pointer-events:none;}
+    .portfolio-item span{position:relative;z-index:2;font-family:var(--font-display);font-weight:600;font-size:0.9rem;}
+    .portfolio-item:nth-child(1){grid-column:span 2;grid-row:span 2;}
+    .portfolio-item:nth-child(4){grid-column:span 2;}
+    .portfolio-item:nth-child(6){grid-column:span 2;}
+    .portfolio-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;}
+    .portfolio-filters button{padding:6px 14px;border-radius:var(--radius-pill);border:1px solid var(--line);font-size:0.78rem;font-weight:500;color:var(--ink-soft);}
+    .portfolio-filters button.active{background:var(--maroon);color:var(--white);border-color:var(--maroon);}
+    .portfolio-item.hide{display:none;}
+
+    /* ===== REVIEWS ===== */
+    .reviews{background:var(--white);}
+    .reviews-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px;}
+    .review-viewport{overflow:hidden;padding:5px 0 16px;mask-image:linear-gradient(to right,transparent 0,#000 36px,#000 calc(100% - 36px),transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 36px,#000 calc(100% - 36px),transparent 100%);}
+    .review-track{display:flex;flex-wrap:nowrap;gap:14px;width:max-content;user-select:none;}
+    @keyframes reviewMarquee{from{transform:translate3d(0,0,0);}to{transform:translate3d(-33.3333%,0,0);}}
+    .review-track.scrolling{animation:reviewMarquee 20s linear infinite;will-change:transform;}
+    .review-viewport:hover .review-track.scrolling,.review-viewport:focus-within .review-track.scrolling{animation-play-state:paused;}
+    .review-card{flex:0 0 250px;width:250px;background:var(--mist);border-radius:16px;padding:17px;cursor:pointer;transition:background .25s,transform .25s,box-shadow .25s;position:relative;}
+    .review-card:hover,.review-card:focus-visible{background:var(--blush);transform:translateY(-4px);box-shadow:0 12px 22px -14px rgba(62,44,58,.25);outline:none;}
+    .review-stars{color:var(--gold);letter-spacing:2px;font-size:0.9rem;}
+    .review-stars.large{font-size:1.4rem;margin-bottom:4px;}
+    .review-msg{margin-top:9px;color:var(--ink);font-size:0.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4em;}
+    .review-meta{margin-top:12px;display:flex;justify-content:space-between;gap:10px;font-size:0.72rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:9px;}
+    .review-meta .name{font-weight:700;color:var(--maroon);}
+    .review-full{font-size:0.92rem;line-height:1.6;color:var(--ink);white-space:pre-wrap;margin:11px 0 15px;}
+    .review-card .quote-mark{position:absolute;top:10px;right:14px;font-size:1.6rem;color:var(--maroon);opacity:.12;font-family:serif;line-height:1;}
+
+    /* ===== MODAL ===== */
+    .modal-overlay{position:fixed;inset:0;background:rgba(62,44,58,.5);display:none;align-items:center;justify-content:center;z-index:1000;padding:18px;}
+    .modal-overlay.open{display:flex;}
+    .modal{background:var(--white);border-radius:var(--radius-lg);padding:24px;max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+    .modal-close{position:absolute;top:14px;right:14px;font-size:1.2rem;color:var(--ink-soft);}
+    .modal h3{font-size:1.2rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .modal h3 .heart{color:var(--maroon);font-size:1rem;}
+
+    .field{margin-bottom:12px;}
+    .field label{display:block;font-size:0.78rem;font-weight:600;margin-bottom:5px;color:var(--ink);}
+    .field input,.field textarea,.field select{width:100%;padding:10px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--linen);font-family:inherit;font-size:0.88rem;color:var(--ink);transition:border-color .2s;}
+    .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--maroon);}
+    .field textarea{resize:vertical;min-height:80px;}
+    .field-error{color:var(--maroon);font-size:0.74rem;margin-top:5px;display:none;}
+    .field.invalid input,.field.invalid textarea{border-color:var(--maroon);}
+    .field.invalid .field-error{display:block;}
+    .star-select{display:flex;gap:5px;font-size:1.3rem;}
+    .star-select button{color:var(--line);transition:color .15s;}
+    .star-select button.filled,.star-select button:hover,.star-select button:hover ~ button{color:var(--gold);}
+    .form-note{margin-top:10px;font-size:0.8rem;padding:9px 11px;border-radius:9px;display:none;}
+    .form-note.success{display:block;background:#FFE9F0;color:#A12B4A;}
+    .form-note.error{display:block;background:var(--blush);color:var(--maroon);}
+
+    /* ===== CONTACT ===== */
+    .contact .container{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;position:relative;z-index:1;}
+    .contact-info{background:linear-gradient(160deg,var(--maroon) 0%,var(--rose-deep) 100%);color:var(--white);border-radius:var(--radius-lg);padding:26px;position:relative;overflow:hidden;}
+    .contact-info::after{content:'🎀';position:absolute;bottom:10px;right:14px;font-size:2.2rem;opacity:.15;pointer-events:none;}
+    .contact-info h2{color:var(--white);font-size:1.35rem;}
+    .contact-info p{margin-top:10px;color:#FFE0EB;max-width:34ch;font-size:0.9rem;}
+    .contact-social{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;}
+    .contact-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:background .2s;font-size:0.9rem;}
+    .contact-social a:hover{background:var(--rose);}
+    .contact-form{background:var(--white);border-radius:var(--radius-lg);padding:26px;position:relative;}
+    .contact-form .tiny-note{position:absolute;bottom:12px;right:16px;font-size:0.65rem;color:var(--ink-soft);opacity:.6;}
+
+    /* ===== FOOTER ===== */
+    footer{background:var(--ink);color:#EAC9D4;padding:36px 0 18px;position:relative;overflow:hidden;}
+    footer::before{content:'💗';position:absolute;top:16px;right:20px;font-size:2rem;opacity:.06;pointer-events:none;}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;}
+    .footer-brand .brand{color:var(--white);}
+    .footer-brand p{margin-top:10px;max-width:30ch;font-size:0.82rem;}
+    .footer-col h4{color:var(--white);font-size:0.86rem;font-weight:700;margin-bottom:10px;}
+    .footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:7px;}
+    .footer-col a{font-size:0.82rem;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-social{display:flex;gap:9px;flex-wrap:wrap;}
+    .footer-social a{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+    .footer-social a:hover{background:var(--maroon);}
+    .footer-bottom{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);font-size:0.72rem;text-align:center;}
+
+    /* ===== MISC ===== */
+    .state-message{text-align:center;padding:30px 18px;color:var(--ink-soft);font-family:var(--font-display);font-weight:600;font-size:1rem;width:100%;}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--maroon);color:var(--white);padding:11px 20px;border-radius:var(--radius-pill);font-size:0.82rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:2000;}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .toast.error{background:var(--maroon);}
+
+    /* ===== STICKY ORDER BUBBLE ===== */
+    .order-bubble{position:fixed;bottom:20px;right:20px;z-index:900;display:flex;align-items:center;gap:8px;background:var(--maroon);color:var(--white);padding:10px 18px;border-radius:var(--radius-pill);font-size:0.85rem;font-weight:600;box-shadow:0 10px 24px -8px rgba(128,0,32,.6);transition:transform .25s,box-shadow .25s;cursor:pointer;}
+    .order-bubble:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 28px -8px rgba(128,0,32,.75);}
+    .order-bubble .pulse{width:8px;height:8px;border-radius:50%;background:#FFC1D4;animation:pulse 1.8s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.4);}}
+
+    /* ===== GIFT FINDER ===== */
+    .gift-finder{background:var(--periwink);border-radius:var(--radius-lg);padding:22px;margin-top:20px;position:relative;overflow:hidden;}
+    .gift-finder::before{content:'✨';position:absolute;top:10px;right:16px;font-size:1.2rem;opacity:.3;}
+    .gift-finder h3{font-size:1.05rem;font-family:var(--font-body);font-weight:700;margin-bottom:4px;}
+    .gift-finder p{font-size:0.82rem;color:var(--ink-soft);margin-bottom:14px;}
+    .gift-options{display:flex;gap:8px;flex-wrap:wrap;}
+    .gift-chip{padding:7px 15px;border-radius:var(--radius-pill);background:var(--white);font-size:0.78rem;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s,transform .15s;}
+    .gift-chip:hover{transform:translateY(-2px);}
+    .gift-chip.selected{background:var(--maroon);color:var(--white);}
+    .gift-result{margin-top:14px;font-size:0.82rem;font-weight:600;color:var(--maroon);min-height:1.2em;}
+
+    /* ===== CUTE MARQUEE STRIP ===== */
+    .cute-strip{background:var(--maroon);color:var(--white);padding:8px 0;overflow:hidden;white-space:nowrap;font-size:0.78rem;font-weight:600;letter-spacing:.5px;}
+    .cute-strip .track{display:inline-block;animation:stripMove 24s linear infinite;}
+    .cute-strip .track span{margin:0 22px;display:inline-flex;align-items:center;gap:6px;}
+    @keyframes stripMove{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    /* ===== MINI COUNTDOWN ===== */
+    .mini-count{display:flex;gap:10px;margin-top:0;}
+    .mini-count .unit{background:var(--white);border-radius:12px;padding:6px 10px;text-align:center;min-width:44px;box-shadow:0 4px 10px -4px rgba(62,44,58,.1);}
+    .mini-count .unit strong{display:block;font-family:var(--font-display);font-size:1rem;color:var(--maroon);}
+    .mini-count .unit span{font-size:0.6rem;color:var(--ink-soft);}
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 980px) {
+      .about .container{grid-template-columns:1fr;}
+      .contact .container{grid-template-columns:1fr;}
+      .about-visual{max-width:260px;margin:0 auto;}
+      .portfolio-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:108px;}
+      .portfolio-item:nth-child(1){grid-column:span 2;grid-row:span 2;}
+      .portfolio-item:nth-child(4),.portfolio-item:nth-child(6){grid-column:span 1;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .footer-brand{grid-column:span 2;}
+    }
+
+    @media (max-width: 760px) {
+      body{font-size:14px;}
+      section{padding:32px 0;}
+      .nav-links,.nav-cta .btn-secondary{display:none;}
+      .hamburger{display:flex;}
+      :root{--step-3:1.3rem;--step-4:clamp(1.5rem,7vw,1.85rem);}
+
+      .hero .container{grid-template-columns:1fr;gap:20px;}
+      .hero{padding:18px 0 26px;}
+      .hero-visual{display:none;}
+      .hero-copy p{font-size:0.88rem;}
+      .hero-stats{gap:16px;flex-wrap:wrap;margin-top:20px;}
+      .hero-stats div strong{font-size:1.1rem;}
+      .hero-extras{grid-template-columns:1fr;}
+
+      .portfolio-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:104px;gap:8px;}
+      .portfolio-item:nth-child(1){grid-column:span 2;grid-row:span 1;}
+      .portfolio-item span{font-size:0.8rem;}
+      .footer-grid{grid-template-columns:1fr;gap:20px;}
+      .footer-brand{grid-column:span 1;}
+      .contact-info,.contact-form{padding:20px;}
+      .modal{padding:20px;}
+      .review-card{flex:0 0 74vw;width:74vw;}
+      .order-bubble{right:12px;bottom:12px;padding:9px 14px;font-size:0.78rem;}
+      .gift-finder{padding:18px;}
+    }
+
+    @media (max-width: 480px) {
+      .container{padding:0 15px;}
+      .navbar .container{height:54px;}
+      .brand{font-size:1.1rem;}
+      .hero-actions{flex-direction:column;align-items:stretch;}
+      .hero-actions .btn{justify-content:center;}
+      .section-heading h2{font-size:1.2rem;}
+      .section-heading p{font-size:0.84rem;}
+      .review-card{flex-basis:80vw;width:80vw;padding:14px;}
+      .hero-stats div span{font-size:0.66rem;}
+      .mini-count{gap:6px;}
+      .mini-count .unit{min-width:38px;padding:5px 8px;}
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <a href="#home" class="brand">Creative Gifting <span>By Madniah</span></a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- cute scrolling strip -->
+<div class="cute-strip" aria-hidden="true">
+  <div class="track">
+    <span>✨ made with love</span><span>🎀 hand-tied bouquets</span><span>💗 custom cakes</span><span>🍫 chocolate hampers</span><span>🌸 wedding gifting</span><span>🎁 same-week delivery</span>
+    <span>✨ made with love</span><span>🎀 hand-tied bouquets</span><span>💗 custom cakes</span><span>🍫 chocolate hampers</span><span>🌸 wedding gifting</span><span>🎁 same-week delivery</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <span class="float-heart" aria-hidden="true">🌸</span>
+    <span class="float-heart" aria-hidden="true">🎀</span>
+    <span class="float-heart" aria-hidden="true">💗</span>
+    <span class="float-heart" aria-hidden="true">✨</span>
+    <span class="float-heart" aria-hidden="true">🍰</span>
+    <span class="sparkle-dot" style="top:20%;left:40%;" aria-hidden="true">✦</span>
+    <span class="sparkle-dot" style="top:60%;left:85%;animation-delay:1s;" aria-hidden="true">✦</span>
+
+    <div class="container">
+
+      <!-- LEFT: copy + actions + stats -->
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> Handcrafted, with care</span>
+        <h1>Thoughtful gifts, <span class="wavy">beautifully</span> made.</h1>
+        <p>Personalized cakes, bouquets, chocolate baskets and hampers — arranged by hand for the birthdays, weddings and quiet moments that deserve something more than ordinary.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#contact" class="btn btn-secondary">Contact Us</a>
+          <button class="btn btn-secondary confetti-btn" id="confettiBtn" type="button">🎉 Surprise Me</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>250+</strong><span>Gifts delivered</span></div>
+          <div><strong>40+</strong><span>Happy families</span></div>
+          <div><strong>12</strong><span>Occasions covered</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: image pinned top -->
+      <div class="hero-visual">
+        <span class="badge">made to order</span>
+        <span class="badge-2">💗 100% handmade</span>
+        <img src="https://i.pinimg.com/1200x/b3/59/d3/b359d30aac92a50ab27f59c67c1bcd31.jpg" alt="Hands exchanging a beautifully wrapped gift box">
+      </div>
+
+      <!-- BELOW: full-width extras row -->
+      <div class="hero-extras">
+        <div class="mini-count" id="miniCount" aria-label="Time until next weekend">
+          <div class="unit"><strong id="cdDays">0</strong><span>days</span></div>
+          <div class="unit"><strong id="cdHours">0</strong><span>hrs</span></div>
+          <div class="unit"><strong id="cdMins">0</strong><span>min</span></div>
+          <div class="unit"><strong id="cdSecs">0</strong><span>sec</span></div>
+        </div>
+
+        <div class="gift-finder" id="giftFinder">
+          <h3>💡 Not sure what to gift?</h3>
+          <p>Pick an occasion and we'll suggest something lovely.</p>
+          <div class="gift-options">
+            <span class="gift-chip" data-occasion="birthday">🎂 Birthday</span>
+            <span class="gift-chip" data-occasion="wedding">💍 Wedding</span>
+            <span class="gift-chip" data-occasion="anniversary">💞 Anniversary</span>
+            <span class="gift-chip" data-occasion="thankyou">🙏 Thank You</span>
+          </div>
+          <div class="gift-result" id="giftResult"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <span class="float-heart" style="top:20%;left:3%;" aria-hidden="true">🌷</span>
+    <span class="float-heart" style="top:75%;right:4%;" aria-hidden="true">💕</span>
+
+    <div class="container">
+      <div class="about-visual">
+        <img src="https://i.pinimg.com/736x/f1/b6/5d/f1b65d990499388f2dad73237cc1b49f.jpg" alt="Soft purple flowers arranged for a bouquet">
+        <span class="sticker">🌿 fresh &amp; local</span>
+      </div>
+
+      <div class="about-copy">
+        <span class="kicker">Our story</span>
+        <h2>Every gift is arranged, not assembled.</h2>
+        <p>Creative Gifting By Madniah Patel started as a small table of hand-tied bouquets and grew into a full gifting studio. Every cake, bouquet and hamper is planned around the person receiving it — their favourite colours, their celebration, their story — and put together by hand, not pulled off a shelf.</p>
+        <ul class="about-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Custom colour palettes and themes for every order</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Same-week turnaround for most occasions</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Careful, presentation-first packaging</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Recent work</span>
+        <h2>A look at what we've arranged</h2>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="cakes">Cakes</button>
+        <button data-filter="bouquets">Bouquets</button>
+        <button data-filter="hampers">Hampers</button>
+        <button data-filter="wedding">Wedding</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-category="wedding">
+          <img src="https://i.pinimg.com/736x/56/1a/1a/561a1ae5e6b0a680841d1cfa314c4b0d.jpg" alt="Wedding gift basket of flowers">
+          <span>Wedding hamper set</span>
+        </div>
+        <div class="portfolio-item" data-category="bouquets">
+          <img src="https://i.pinimg.com/1200x/18/03/a1/1803a1b0593d5f3f6d4e3a2012b0f59b.jpg" alt="Wrapped gift box, cash bouquet style">
+          <span>Cash bouquet</span>
+        </div>
+        <div class="portfolio-item" data-category="cakes">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=380&h=300&q=80&auto=format&fit=crop" alt="Birthday cake">
+          <span>Birthday cake</span>
+        </div>
+        <div class="portfolio-item" data-category="hampers">
+          <img src="https://i.pinimg.com/736x/30/96/93/3096930501a43c7666f9b8f91bb71d03.jpg" alt="Chocolate hamper">
+          <span>Chocolate hamper</span>
+        </div>
+        <div class="portfolio-item" data-category="bouquets">
+          <img src="https://i.pinimg.com/736x/5b/72/73/5b7273688da174897057d5bf7ec0cd67.jpg" alt="Flower bouquet">
+          <span>Flower bouquet</span>
+        </div>
+        <div class="portfolio-item" data-category="cakes">
+          <img src="https://i.pinimg.com/736x/c4/e4/02/c4e40258dfb15ae62bdafce047137770.jpg" alt="Anniversary cake">
+          <span>Anniversary cake</span>
+        </div>
+        <div class="portfolio-item" data-category="hampers">
+          <img src="https://i.pinimg.com/1200x/36/e8/9c/36e89cedd5196ec09118c33c44b23742.jpg" alt="Baby celebration box">
+          <span>Baby celebration box</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-head">
+        <div class="section-heading" style="margin-bottom:0;">
+          <span class="kicker">Kind words</span>
+          <h2>What our customers say</h2>
+        </div>
+        <button class="btn btn-primary" data-open-review>Leave a Review</button>
+      </div>
+
+      <div class="review-viewport">
+        <div class="review-track" id="reviewTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <span class="float-heart" style="top:12%;left:5%;" aria-hidden="true">💌</span>
+    <span class="float-heart" style="bottom:15%;right:6%;" aria-hidden="true">🎀</span>
+
+    <div class="container">
+      <div class="contact-info">
+        <h2>Let's plan your next gift.</h2>
+        <p>Tell us the occasion and who it's for — we'll take care of the rest. We reply to every message personally.</p>
+        <div class="contact-social" data-social-target aria-label="Social links"></div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" name="name" required>
+        </div>
+        <div class="field">
+          <label for="contactMethod">Email, phone or WhatsApp</label>
+          <input type="text" id="contactMethod" name="contact" required placeholder="e.g. +92 300 1234567">
+        </div>
+        <div class="field">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" required placeholder="Tell us the occasion, colours, or budget…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <div class="form-note" id="contactNote" role="status"></div>
+        <span class="tiny-note">💗 we reply within a day</span>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand">Creative <span>Gifting</span></a>
+        <p>Handcrafted cakes, bouquets and hampers for the celebrations that matter — made by Madniah Patel.</p>
+        <div class="footer-social" data-social-target style="margin-top:20px;" aria-label="Social links"></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="#contact">Contact form</a></li>
+          <li><a href="login.html">Admin login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Creative Gifting By Madniah Patel. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- sticky order bubble -->
+<button class="order-bubble" id="orderBubble" data-whatsapp type="button" aria-label="Order on WhatsApp">
+  <span class="pulse" aria-hidden="true"></span>
+  💬 Order on WhatsApp
+</button>
+
+<!-- Review modal -->
+<div class="modal-overlay" id="reviewModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+    <button class="modal-close" id="reviewModalClose" aria-label="Close">&times;</button>
+    <h3 id="reviewModalTitle"><span class="heart">💗</span> Leave a Review</h3>
+    <form id="reviewForm" novalidate>
+      <div class="field">
+        <label for="reviewerName">Name</label>
+        <input type="text" id="reviewerName" name="reviewerName" required>
+      </div>
+      <div class="field">
+        <label for="reviewerMessage">Your review</label>
+        <textarea id="reviewerMessage" name="reviewerMessage" required></textarea>
+      </div>
+      <div class="field">
+        <label>Rating</label>
+        <div class="star-select">
+          <button type="button" data-value="1">★</button>
+          <button type="button" data-value="2">★</button>
+          <button type="button" data-value="3">★</button>
+          <button type="button" data-value="4">★</button>
+          <button type="button" data-value="5">★</button>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Review</button>
+      <div class="form-note" id="reviewNote" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<!-- WhatsApp copy modal -->
+<div class="modal-overlay" id="waCopyModal">
+  <div class="modal" role="dialog" aria-modal="true" style="max-width:360px;text-align:center;">
+    <button class="modal-close" id="waCopyClose" aria-label="Close">&times;</button>
+    <div style="font-size:3rem;margin-bottom:8px;">📱</div>
+    <h3 style="justify-content:center;font-size:1.3rem;display:flex;align-items:center;gap:8px;">
+      Number copied!
+    </h3>
+    <p style="color:var(--ink-soft);font-size:0.9rem;margin:8px 0 14px;">
+      You can now paste it in WhatsApp
+    </p>
+    <div id="waCopyNumber"
+         style="background:var(--mist);padding:10px 16px;border-radius:999px;
+                font-weight:700;color:var(--maroon);font-size:1rem;
+                display:inline-block;margin-bottom:18px;">
+      +92 327 8282191
+    </div>
+    <br>
+    <button class="btn btn-primary" id="waCopyOk"
+            style="width:100%;justify-content:center;">Got it</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="api.js"></script>
+<script src="main.js"></script>
+<script src="reviews.js?v=10"></script>
+
+<script>
+(function(){
+  // ---------- CONFETTI ----------
+  const btn = document.getElementById('confettiBtn');
+  if (btn) {
+    const colors = ['#800020','#F25C8A','#FFC1D4','#F7B32B','#D44A7A','#FFD9E6'];
+    btn.addEventListener('click', function(){
+      const rect = btn.getBoundingClientRect();
+      for (let i = 0; i < 24; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti-piece';
+        piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+        piece.style.left = (rect.left + rect.width/2) + 'px';
+        piece.style.top = (rect.top + rect.height/2) + 'px';
+        piece.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        document.body.appendChild(piece);
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 60 + Math.random() * 90;
+        const dx = Math.cos(angle) * velocity;
+        const dy = Math.sin(angle) * velocity - 40;
+        piece.animate([
+          { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+          { transform: `translate(${dx}px, ${dy + 120}px) rotate(${Math.random()*720-360}deg)`, opacity: 0 }
+        ], {
+          duration: 900 + Math.random()*500,
+          easing: 'cubic-bezier(.2,.7,.4,1)'
+        }).onfinish = () => piece.remove();
+      }
+    });
+  }
+
+  // ---------- GIFT FINDER ----------
+  const chips = document.querySelectorAll('.gift-chip');
+  const result = document.getElementById('giftResult');
+  const suggestions = {
+    birthday:    '🎂 A custom cake + a small bouquet in their favourite colours.',
+    wedding:     '💍 A luxury hamper with flowers, chocolates and a keepsake card.',
+    anniversary: '💞 A rose bouquet paired with a box of artisan chocolates.',
+    thankyou:    '🙏 A hand-tied bouquet with a handwritten note — simple & sincere.'
+  };
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      const key = chip.dataset.occasion;
+      result.textContent = suggestions[key] || '';
+    });
+  });
+
+  // ---------- MINI COUNTDOWN ----------
+  const cdDays = document.getElementById('cdDays');
+  const cdHours = document.getElementById('cdHours');
+  const cdMins = document.getElementById('cdMins');
+  const cdSecs = document.getElementById('cdSecs');
+  function updateCountdown(){
+    if (!cdDays) return;
+    const now = new Date();
+    const target = new Date(now);
+    const day = now.getDay();
+    let daysUntilSat = (6 - day + 7) % 7;
+    if (daysUntilSat === 0 && now.getHours() >= 10) daysUntilSat = 7;
+    target.setDate(now.getDate() + daysUntilSat);
+    target.setHours(10,0,0,0);
+    const diff = target - now;
+    cdDays.textContent = Math.floor(diff / 86400000);
+    cdHours.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    cdMins.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    cdSecs.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---------- SPARKLE ON HOVER ----------
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const spark = document.createElement('span');
+      spark.textContent = '✨';
+      spark.style.position = 'absolute';
+      spark.style.top = '8px';
+      spark.style.right = '10px';
+      spark.style.fontSize = '1rem';
+      spark.style.zIndex = 3;
+      spark.style.pointerEvents = 'none';
+      spark.style.animation = 'sparkle 1s ease';
+      item.appendChild(spark);
+      setTimeout(() => spark.remove(), 1000);
+    });
+  });
+
+  // ---------- WHATSAPP COPY MODAL (bulletproof) ----------
+  var WA_NUMBER_RAW     = '+923278282191';
+  var WA_NUMBER_DISPLAY = '+92 327 8282191';
+
+  var waModal, waNumberEl, waCloseBtn, waOkBtn;
+
+  function copyNumber(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(function(){});
+    }
+    return new Promise(function (resolve) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      resolve();
+    });
+  }
+
+  function openWaModal() {
+    if (!waModal) return;
+    waModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWaModal() {
+    if (!waModal) return;
+    waModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function waClickHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    copyNumber(WA_NUMBER_RAW).finally(openWaModal);
+    return false;
+  }
+
+  function bindWhatsApp(el) {
+    if (!el || el.dataset.waBound === '1') return;
+    el.dataset.waBound = '1';
+    // capture phase → runs before any other listener
+    el.addEventListener('click', waClickHandler, true);
+  }
+
+  function initWhatsApp() {
+    waModal    = document.getElementById('waCopyModal');
+    waNumberEl = document.getElementById('waCopyNumber');
+    waCloseBtn = document.getElementById('waCopyClose');
+    waOkBtn    = document.getElementById('waCopyOk');
+
+    if (waNumberEl) waNumberEl.textContent = WA_NUMBER_DISPLAY;
+
+    // bind to any element with [data-whatsapp] or the order bubble
+    document.querySelectorAll('[data-whatsapp], #orderBubble').forEach(bindWhatsApp);
+
+    if (waCloseBtn) waCloseBtn.addEventListener('click', closeWaModal);
+    if (waOkBtn)    waOkBtn.addEventListener('click', closeWaModal);
+    if (waModal) {
+      waModal.addEventListener('click', function (e) {
+        if (e.target === waModal) closeWaModal();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeWaModal();
+    });
+  }
+
+  // ---------- HAMBURGER MENU ----------
+  const hamburger = document.getElementById('hamburger');
+  const mobilePanel = document.getElementById('mobilePanel');
+  if (hamburger && mobilePanel) {
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobilePanel.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  // ---------- YEAR ----------
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ---------- PORTFOLIO FILTERS ----------
+  const filterButtons = document.querySelectorAll('.portfolio-filters button');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  filterButtons.forEach(b => {
+    b.addEventListener('click', function () {
+      filterButtons.forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      portfolioItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+
+  // ---------- REVIEW MODAL ----------
+  const reviewModal = document.getElementById('reviewModal');
+  const reviewModalClose = document.getElementById('reviewModalClose');
+  document.querySelectorAll('[data-open-review]').forEach(b => {
+    b.addEventListener('click', function () {
+      if (reviewModal) reviewModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  if (reviewModalClose) {
+    reviewModalClose.addEventListener('click', function () {
+      reviewModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+  if (reviewModal) {
+    reviewModal.addEventListener('click', function (e) {
+      if (e.target === reviewModal) {
+        reviewModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // ---------- CONTACT FORM ----------
+  const contactForm = document.getElementById('contactForm');
+  const contactNote = document.getElementById('contactNote');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const contact = document.getElementById('contactMethod').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      if (!name || !contact || !message) {
+        if (contactNote) {
+          contactNote.textContent = 'Please fill in all fields.';
+          contactNote.className = 'form-note error';
+        }
+        return;
+      }
+      if (contactNote) {
+        contactNote.textContent = "Thank you! We'll get back to you soon. 💗";
+        contactNote.className = 'form-note success';
+      }
+      contactForm.reset();
+    });
+  }
+
+  // ---------- INIT WHATSAPP (runs immediately) ----------
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhatsApp);
+  } else {
+    initWhatsApp();
+  }
+})();
+</script>
+</body>
+</html>

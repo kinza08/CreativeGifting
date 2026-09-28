@@ -1,0 +1,268 @@
+/* ============================================================
+   admin.css — a calmer, working-tool palette that still carries
+   the brand accent (rose/plum), used for the dashboard + login.
+   ============================================================ */
+
+:root {
+  --admin-bg: #F6F3EF;
+  --admin-panel: #FFFFFF;
+  --admin-border: #E7E1D8;
+  --admin-text: #362633;
+  --admin-muted: #8A7C86;
+  --admin-sidebar: #362633;
+}
+
+body.admin-body {
+  background: var(--admin-bg);
+}
+
+/* ---------------- Login screen ---------------- */
+
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: var(--admin-panel);
+  border-radius: var(--radius-soft);
+  padding: 44px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 30px 60px -30px rgba(54, 38, 51, 0.25);
+}
+
+.login-card .brand {
+  display: block;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-card h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.login-card .sub {
+  text-align: center;
+  color: var(--admin-muted);
+  font-size: 0.92rem;
+  margin-bottom: 28px;
+}
+
+.login-card .btn { width: 100%; justify-content: center; }
+
+/* ---------------- Dashboard shell ---------------- */
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: var(--admin-sidebar);
+  color: #D8CBD5;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar .brand {
+  color: var(--white);
+  font-size: 1.15rem;
+  margin-bottom: 36px;
+  padding: 0 8px;
+}
+
+.admin-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  flex: 1;
+}
+
+.admin-nav button {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #D8CBD5;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-nav button:hover { background: rgba(255,255,255,0.06); }
+
+.admin-nav button.active {
+  background: var(--rose-deep);
+  color: var(--white);
+}
+
+.admin-logout {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #D8CBD5;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-logout:hover { background: rgba(255,255,255,0.08); }
+
+.admin-main {
+  padding: 36px 40px;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-topbar h1 { font-size: 1.7rem; }
+
+.mobile-topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--admin-sidebar);
+  color: var(--white);
+}
+
+.mobile-topbar button { color: var(--white); font-size: 1.4rem; }
+
+/* ---------------- Stat cards ---------------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.stat-card {
+  background: var(--admin-panel);
+  border-radius: 18px;
+  padding: 22px 24px;
+  border: 1px solid var(--admin-border);
+}
+
+.stat-card span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--admin-muted);
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+}
+
+/* ---------------- Panels & tables ---------------- */
+
+.admin-panel {
+  background: var(--admin-panel);
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 28px;
+}
+
+.admin-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-panel-head h2 { font-size: 1.2rem; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--admin-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--admin-border);
+  font-size: 0.82rem;
+}
+
+.admin-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--admin-border);
+  vertical-align: top;
+}
+
+.table-scroll { overflow-x: auto; }
+
+.row-actions { display: flex; gap: 8px; white-space: nowrap; }
+
+.icon-btn {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+.icon-btn:hover { background: var(--blush); color: var(--rose-deep); }
+
+.icon-btn.danger:hover { background: var(--blush); color: var(--rose-deep); }
+
+.card-list { display: none; flex-direction: column; gap: 14px; }
+
+.record-card {
+  border: 1px solid var(--admin-border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.record-card .rc-title { font-weight: 500; margin-bottom: 4px; }
+.record-card .rc-meta { color: var(--admin-muted); font-size: 0.85rem; margin-bottom: 8px; }
+.record-card .rc-body { font-size: 0.92rem; margin-bottom: 12px; }
+
+/* ---------------- Panel section switching ---------------- */
+
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+
+/* ---------------- Empty / loading ---------------- */
+
+.table-empty { padding: 32px; text-align: center; color: var(--admin-muted); }
+
+/* ---------------- Password rule ---------------- */
+
+.security-form { max-width: 420px; }
+
+@media (max-width: 900px) {
+  .admin-shell { grid-template-columns: 1fr; }
+  .admin-sidebar { display: none; }
+  .admin-sidebar.open { display: flex; position: fixed; inset: 0 20% 0 0; z-index: 200; }
+  .mobile-topbar { display: flex; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-main { padding: 24px 20px; }
+  .admin-table { display: none; }
+  .card-list { display: flex; }
+}

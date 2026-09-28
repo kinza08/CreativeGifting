@@ -1,0 +1,68 @@
+# Portfolio Backend (FastAPI + MongoDB)
+
+Backend for a proof-of-work portfolio site: services list, reviews, a contact
+form, editable social links, and an admin panel to manage all of it.
+
+## Setup
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env
+# then edit .env with your real MongoDB URI, a random JWT_SECRET,
+# and the admin username/password you want on first run
+uvicorn app.main:app --reload
+```
+
+Visit `http://127.0.0.1:8000/docs` for interactive API docs (Swagger UI) —
+useful for testing every endpoint before you wire up the frontend.
+
+## How admin login works
+
+- On first startup, if no admin exists yet in the database, one is created
+  from `ADMIN_USERNAME` / `ADMIN_PASSWORD` in your `.env`.
+- `POST /admin/login` with that username/password returns a JWT `access_token`.
+- Send that token on every admin request as a header:
+  `Authorization: Bearer <token>`
+- `POST /admin/change-password` lets you change it afterwards — do this once
+  you've confirmed login works, so the `.env` password isn't the real one.
+
+## Endpoints
+
+### Public (no auth)
+| Method | Path | What it does |
+|---|---|---|
+| GET | `/services` | List all services offered |
+| GET | `/reviews` | List all reviews |
+| POST | `/reviews` | Submit a review `{name, message, rating}` |
+| POST | `/messages` | Submit a contact message `{name, contact, message}` |
+| GET | `/social` | List social links (use this to populate the Instagram modal) |
+| POST | `/admin/login` | Log in, get a token |
+
+### Admin (needs `Authorization: Bearer <token>`)
+| Method | Path | What it does |
+|---|---|---|
+| POST | `/admin/services` | Add a service |
+| PUT | `/admin/services/{id}` | Edit a service |
+| DELETE | `/admin/services/{id}` | Delete a service |
+| DELETE | `/admin/reviews/{id}` | Delete a review |
+| GET | `/admin/messages` | View contact form submissions |
+| DELETE | `/admin/messages/{id}` | Delete a message |
+| POST | `/admin/social` | Add a social link `{platform, url}` |
+| PUT | `/admin/social/{id}` | Edit a social link's URL |
+| DELETE | `/admin/social/{id}` | Delete a social link |
+| POST | `/admin/change-password` | Change the admin password |
+
+## Deploying (Render/Railway/PythonAnywhere)
+
+- Set the same env vars from `.env.example` in your host's dashboard.
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Use MongoDB Atlas's free tier for `MONGO_URI` if you don't have Mongo hosted
+  elsewhere already.
+- Once deployed, put your real frontend URL(s) in `CORS_ORIGINS` — the `*`
+  default is fine for local testing but you'll want to lock it down for prod.
+
+## Frontend notes
+
+- The "Order now" button doesn't need its own endpoint — just `GET /social`,
+  find the `instagram` entry, and open your contact modal with that URL.
+- Review form and contact form are both public — no login needed for visitors.

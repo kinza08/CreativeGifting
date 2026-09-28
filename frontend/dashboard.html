@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Creative Gifting</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="admin-theme.css">
+</head>
+<body class="admin-body">
+
+<span class="fx" aria-hidden="true">🌸</span>
+<span class="fx" aria-hidden="true">💗</span>
+<span class="fx" aria-hidden="true">🎀</span>
+
+<div class="mobile-topbar">
+  <button id="sidebarToggle" aria-label="Open menu">&#9776;</button>
+  <span class="brand">Creative <span>Gifting</span></span>
+  <span style="width:24px;"></span>
+</div>
+
+<div class="admin-shell">
+
+  <aside class="admin-sidebar" id="adminSidebar">
+    <span class="brand">Creative <span>Gifting</span></span>
+    <ul class="admin-nav">
+      <li><button data-section="overview" class="active">🏠 Dashboard</button></li>
+
+      <li><button data-section="reviews">⭐ Reviews</button></li>
+      <li><button data-section="messages">💌 Messages</button></li>
+      <li><button data-section="social">🔗 Social</button></li>
+      <li><button data-section="security">🔒 Security</button></li>
+    </ul>
+    <button class="admin-logout" id="logoutBtn">Log Out</button>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- ================= OVERVIEW ================= -->
+    <section class="admin-section active" id="section-overview">
+      <div class="admin-topbar"><h1>Dashboard</h1></div>
+
+      <div class="welcome">
+        <h2 id="greeting">Hello, Madniah 💗</h2>
+        <p>Here's how your gifting studio is doing today. Reply to messages, approve kind words, and keep your links fresh.</p>
+        <span class="clock" id="liveClock">📅 …</span>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card" data-emoji="🎁"><span>Total Services</span><strong id="statServices">—</strong></div>
+        <div class="stat-card" data-emoji="⭐"><span>Total Reviews</span><strong id="statReviews">—</strong></div>
+        <div class="stat-card" data-emoji="💌"><span>Total Messages</span><strong id="statMessages">—</strong></div>
+        <div class="stat-card" data-emoji="🔗"><span>Social Links</span><strong id="statSocial">—</strong></div>
+      </div>
+
+      <div class="admin-panel">
+        <h2 class="panel-title">Quick actions</h2>
+        <div class="quick-grid">
+          <button class="quick-btn" type="button" data-go="messages"><span>💌</span>Read messages<small>See new enquiries</small></button>
+          <button class="quick-btn" type="button" data-go="reviews"><span>⭐</span>Moderate reviews<small>Approve or remove</small></button>
+          <button class="quick-btn" type="button" data-go="social"><span>🔗</span>Update links<small>Instagram, WhatsApp…</small></button>
+          <a class="quick-btn" href="index.html" target="_blank" rel="noopener"><span>🌸</span>View live site<small>Opens in a new tab</small></a>
+          <button class="quick-btn" type="button" data-go="security"><span>🔒</span>Change password<small>Keep your login safe</small></button>
+        </div>
+        <div class="tip-card">
+          <span>💡</span>
+          <p style="margin:0;"><b>Tip:</b> Replying to enquiries within a day keeps customers happy. Your website promises it, so check Messages each morning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="admin-section" id="section-services">
+      <div class="admin-topbar">
+        <h1>Services</h1>
+        <button class="btn btn-primary" id="addServiceBtn">+ Add Service</button>
+      </div>
+      <div class="admin-panel">
+        <div class="table-scroll">
+          <table class="admin-table" id="servicesTable">
+            <thead><tr><th>Title</th><th>Description</th><th>Price</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-list" id="servicesCards"></div>
+      </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section class="admin-section" id="section-reviews">
+      <div class="admin-topbar"><h1>Reviews</h1></div>
+      <div class="admin-panel">
+        <input class="table-search" type="search" placeholder="🔍 Search reviews…" data-search="reviewsTable" aria-label="Search reviews">
+        <div class="table-scroll">
+          <table class="admin-table" id="reviewsTable">
+            <thead><tr><th>Reviewer</th><th>Rating</th><th>Message</th><th>Date</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-list" id="reviewsCards"></div>
+      </div>
+    </section>
+
+    <!-- ================= MESSAGES ================= -->
+    <section class="admin-section" id="section-messages">
+      <div class="admin-topbar"><h1>Messages</h1></div>
+      <div class="admin-panel">
+        <input class="table-search" type="search" placeholder="🔍 Search messages…" data-search="messagesTable" aria-label="Search messages">
+        <div class="table-scroll">
+          <table class="admin-table" id="messagesTable">
+            <thead><tr><th>Name</th><th>Contact</th><th>Message</th><th>Date</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-list" id="messagesCards"></div>
+      </div>
+    </section>
+
+    <!-- ================= SOCIAL ================= -->
+    <section class="admin-section" id="section-social">
+      <div class="admin-topbar">
+        <h1>Social Links</h1>
+        <button class="btn btn-primary" id="addSocialBtn">+ Add Link</button>
+      </div>
+      <div class="admin-panel">
+        <div class="table-scroll">
+          <table class="admin-table" id="socialTable">
+            <thead><tr><th>Platform</th><th>URL</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-list" id="socialCards"></div>
+      </div>
+    </section>
+
+    <!-- ================= SECURITY ================= -->
+    <section class="admin-section" id="section-security">
+      <div class="admin-topbar"><h1>Security</h1></div>
+      <div class="admin-panel security-form">
+        <h2 style="margin-bottom:18px;">Change Password</h2>
+        <form id="passwordForm" novalidate>
+          <div class="field">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" required autocomplete="current-password">
+          </div>
+          <div class="field">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" required autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm New Password</label>
+            <input type="password" id="confirmPassword" required autocomplete="new-password">
+          </div>
+          <button type="submit" class="btn btn-primary">Change Password</button>
+          <div class="form-note" id="passwordNote" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <p class="admin-foot">Made with 💗 for Creative Gifting · <a href="index.html" target="_blank" rel="noopener">Visit site</a></p>
+
+  </main>
+</div>
+
+<!-- ================= SERVICE MODAL ================= -->
+<div class="modal-overlay" id="serviceModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <button class="modal-close" data-close-modal="serviceModal" aria-label="Close">&times;</button>
+    <h3 id="serviceModalTitle">Add Service</h3>
+    <form id="serviceForm" novalidate>
+      <input type="hidden" id="serviceId">
+      <div class="field">
+        <label for="serviceTitle">Title</label>
+        <input type="text" id="serviceTitle" required>
+      </div>
+      <div class="field">
+        <label for="serviceDescription">Description</label>
+        <textarea id="serviceDescription" required></textarea>
+      </div>
+      <div class="field">
+        <label for="servicePrice">Price Range (optional)</label>
+        <input type="text" id="servicePrice" placeholder="e.g. Starting from Rs. 3000">
+      </div>
+      <div class="field">
+        <label for="serviceIcon">Icon (optional)</label>
+        <select id="serviceIcon">
+          <option value="">Default</option>
+          <option value="cake">Cake</option>
+          <option value="bouquet">Bouquet</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="hamper">Hamper</option>
+          <option value="gift">Gift</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Service</button>
+      <div class="form-note" id="serviceNote" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= SOCIAL MODAL ================= -->
+<div class="modal-overlay" id="socialModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="socialModalTitle">
+    <button class="modal-close" data-close-modal="socialModal" aria-label="Close">&times;</button>
+    <h3 id="socialModalTitle">Add Social Link</h3>
+    <form id="socialForm" novalidate>
+      <input type="hidden" id="socialId">
+      <div class="field">
+        <label for="socialPlatform">Platform</label>
+        <select id="socialPlatform">
+          <option value="instagram">Instagram</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="github">GitHub</option>
+          <option value="facebook">Facebook</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="youtube">YouTube</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="socialUrl">URL</label>
+        <input type="url" id="socialUrl" required placeholder="https://">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Link</button>
+      <div class="form-note" id="socialNote" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= CONFIRM DELETE MODAL ================= -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal" style="max-width:380px;" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+    <button class="modal-close" data-close-modal="confirmModal" aria-label="Close">&times;</button>
+    <h3 id="confirmModalTitle">Are you sure?</h3>
+    <p id="confirmModalBody" style="color:var(--admin-muted); margin-bottom:22px;">This action cannot be undone.</p>
+    <div style="display:flex; gap:12px;">
+      <button class="btn btn-secondary" data-close-modal="confirmModal" style="flex:1; justify-content:center;">Cancel</button>
+      <button class="btn btn-primary" id="confirmDeleteBtn" style="flex:1; justify-content:center; background:var(--red-deep);">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="api.js"></script>
+<script src="main.js"></script>
+<script src="admin.js"></script>
+
+<script>
+(function(){
+  // greeting + live clock
+  var g = document.getElementById('greeting');
+  var c = document.getElementById('liveClock');
+  function tick(){
+    var d = new Date(), h = d.getHours();
+    var word = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+    if (g) g.textContent = word + ', Madniah 💗';
+    if (c) c.textContent = '📅 ' + d.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'}) +
+      '  ·  🕒 ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  }
+  tick(); setInterval(tick, 30000);
+
+  // quick actions jump to a section via the existing sidebar buttons
+  document.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var nav = document.querySelector('.admin-nav [data-section="' + b.dataset.go + '"]');
+      if (nav) nav.click();
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+
+  // live table search (filters whatever rows admin.js has rendered)
+  document.querySelectorAll('[data-search]').forEach(function(input){
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var rows = document.querySelectorAll('#' + input.dataset.search + ' tbody tr');
+      rows.forEach(function(r){
+        r.style.display = (!q || r.textContent.toLowerCase().indexOf(q) > -1) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
