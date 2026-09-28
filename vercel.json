@@ -1,8 +1,26 @@
 {
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "app/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.(css|js|jpg|jpeg|png|gif|svg|webp|ico))",
+      "dest": "frontend/$1"
+    },
+    {
+      "src": "/(services|reviews|messages|social|admin/.*)",
+      "dest": "app/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
     }
   ]
 }

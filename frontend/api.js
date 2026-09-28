@@ -3,7 +3,7 @@
    No other file should build a URL or call fetch() directly.
    ============================================================ */
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "";
 const TOKEN_KEY = "admin_access_token";
 
 /**
